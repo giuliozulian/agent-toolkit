@@ -1,0 +1,34 @@
+{
+  "name": "@giuliozulian/agent-toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared Copilot/Claude sub-agents, skills and instructions distributed as a CLI-installable toolkit.",
+  "bin": {
+    "agent-toolkit": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsup src/cli.ts --format esm --dts --clean",
+    "dev": "tsup src/cli.ts --format esm --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "prompts": "^2.4.2",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/prompts": "^2.4.9",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
