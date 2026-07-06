@@ -56,6 +56,15 @@ export const REMOTE_SKILLS: RemoteSkillDefinition[] = [
     ],
   },
   {
+    id: "writing-tests",
+    files: [
+      {
+        url: "https://raw.githubusercontent.com/ntcoding/claude-skillz/main/writing-tests/SKILL.md",
+        targetName: "SKILL.md",
+      },
+    ],
+  },
+  {
     id: "design-taste-frontend",
     files: [
       {

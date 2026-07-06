@@ -5,6 +5,7 @@ All notable changes to this package are documented here. Format loosely follows 
 ## [Unreleased]
 
 ### Added
+- `testing` now auto-installs the live-fetched `writing-tests` skill from `ntcoding/claude-skillz`.
 - `security` now auto-installs the live-fetched `security` skill from `openhands/skills`.
 - `devops` now auto-installs the live-fetched `ci-cd` skill from `ahmedasmar/devops-claude-skills`.
 - `database` now auto-installs the live-fetched `postgres` skill from `planetscale/database-skills`.
@@ -15,6 +16,10 @@ All notable changes to this package are documented here. Format loosely follows 
 - `pm` now auto-installs the live-fetched `docs-maintenance` skill from `jeffrigby/somepulp-agents`.
 - `code-review` now auto-installs the live-fetched `code-review` skill from `petyosi/rc`.
 - `release` now auto-installs the live-fetched `release-skills` skill from `JimLiu/baoyu-skills`.
+
+### Changed
+- Unified `design` and `designer` into a single `design` agent; removed the standalone `designer` template.
+- `design` now uses the live-fetched `design-taste-frontend` skill and includes implementation-ready frontend handoff responsibilities.
 
 ## [0.1.2] - 2026-07-06
 
