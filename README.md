@@ -38,31 +38,42 @@ any file that couldn't be fetched without aborting the rest of the run.
 
 ## Agents included
 
+### Team-wide skill (all agents)
+
+Every agent in this package automatically gets the live-fetched
+[`caveman`](https://github.com/JuliusBrussee/caveman/tree/main/skills/caveman)
+skill in `.github/skills/caveman/`.
+
+It is a global output-compression layer (terser responses, same technical
+substance) to reduce output tokens across the whole team, not only a single
+specialist agent.
+
 Each agent ships as a single `.agent.md` file. Most are fully self-contained (no external skill
 dependency — the expertise/checklist is written inline in the agent file). Three exceptions, all
 fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing manual required:
 
+- all agents use `caveman` (team-wide compression skill);
 - `coordinator` uses [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) ([mattpocock/skills](https://github.com/mattpocock/skills)) to stress-test a plan with the user before delegating work.
 - `frontend` uses [`frontend-design`](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md) (Apache-2.0, [anthropics/skills](https://github.com/anthropics/skills)).
 - `accessibility` uses six skills from [mgifford/accessibility-skills](https://github.com/mgifford/accessibility-skills) (AGPL-3.0) and [mikemai2awesome/agent-skills](https://github.com/mikemai2awesome/agent-skills) (see table below).
 
 | | Agent | Description | Skill it uses |
 |---|---|---|---|
-| 🧭 | `coordinator` | Coordinates multi-step engineering work across all the specialist agents below: plans, delegates, integrates, and verifies the result. | Live-fetched: [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) → `.github/skills/grilling/`. |
-| ⚙️ | `backend` | Implements and reviews server-side logic, APIs, business logic, and third-party integrations. | — (inline checklist only) |
-| 🖥️ | `frontend` | Implements and refactors UI components/pages, matching existing project conventions. | Live-fetched: [`frontend-design`](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md) → `.github/skills/frontend-design/`. |
-| 🎨 | `design` | Reviews and defines design tokens, layout, spacing, and visual/UX consistency. | — (inline checklist only) |
-| ♿ | `accessibility` | Audits UI against WCAG for keyboard nav, screen readers, contrast, and semantics. | Live-fetched: `accessibility-general`, `forms-a11y`, `keyboard-a11y`, `color-contrast-a11y`, `aria-live-regions-a11y` (from [mgifford/accessibility-skills](https://github.com/mgifford/accessibility-skills)) and `frontend-a11y` (from [mikemai2awesome/agent-skills](https://github.com/mikemai2awesome/agent-skills)) → `.github/skills/`. |
-| ⚡ | `performance` | Reviews rendering, bundle size, network requests, and data-access performance. | — (inline checklist only) |
-| 🔒 | `security` | Reviews code/designs for OWASP Top 10-style vulnerabilities and risky config/dependencies. | — (inline checklist only) |
-| 🧪 | `testing` | Designs/writes automated tests, reviews coverage, diagnoses flaky failures. | — (inline checklist only) |
-| 🗄️ | `database` | Designs and reviews schema, migrations, indexes, and constraints. | — (inline checklist only) |
-| 🚀 | `devops` | Reviews/implements CI/CD pipelines, build/deploy config, and infrastructure as code. | — (inline checklist only) |
-| 🌍 | `geo` | Implements and reviews geolocation, maps, and spatial queries (e.g. PostGIS). | — (inline checklist only) |
-| ✍️ | `copy` | Centralizes UI strings, manages i18n/translations, keeps terminology consistent. | — (inline checklist only) |
-| 🔍 | `code-review` | Reviews changes for quality/readability pre-merge and runs the lint/typecheck/build gate. | — (inline checklist only) |
-| 🏷️ | `release` | Manages semantic versioning and changelog entries. | — (inline checklist only) |
-| 📋 | `pm` | Maintains project documentation, changelog, and status tracking. | — (inline responsibilities only) |
+| 🧭 | `coordinator` | Coordinates multi-step engineering work across all the specialist agents below: plans, delegates, integrates, and verifies the result. | Team-wide `caveman` + live-fetched: [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) → `.github/skills/grilling/`. |
+| ⚙️ | `backend` | Implements and reviews server-side logic, APIs, business logic, and third-party integrations. | Team-wide `caveman` + inline checklist. |
+| 🖥️ | `frontend` | Implements and refactors UI components/pages, matching existing project conventions. | Team-wide `caveman` + live-fetched: [`frontend-design`](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md) → `.github/skills/frontend-design/`. |
+| 🎨 | `design` | Reviews and defines design tokens, layout, spacing, and visual/UX consistency. | Team-wide `caveman` + inline checklist. |
+| ♿ | `accessibility` | Audits UI against WCAG for keyboard nav, screen readers, contrast, and semantics. | Team-wide `caveman` + live-fetched: `accessibility-general`, `forms-a11y`, `keyboard-a11y`, `color-contrast-a11y`, `aria-live-regions-a11y` (from [mgifford/accessibility-skills](https://github.com/mgifford/accessibility-skills)) and `frontend-a11y` (from [mikemai2awesome/agent-skills](https://github.com/mikemai2awesome/agent-skills)) → `.github/skills/`. |
+| ⚡ | `performance` | Reviews rendering, bundle size, network requests, and data-access performance. | Team-wide `caveman` + inline checklist. |
+| 🔒 | `security` | Reviews code/designs for OWASP Top 10-style vulnerabilities and risky config/dependencies. | Team-wide `caveman` + inline checklist. |
+| 🧪 | `testing` | Designs/writes automated tests, reviews coverage, diagnoses flaky failures. | Team-wide `caveman` + inline checklist. |
+| 🗄️ | `database` | Designs and reviews schema, migrations, indexes, and constraints. | Team-wide `caveman` + inline checklist. |
+| 🚀 | `devops` | Reviews/implements CI/CD pipelines, build/deploy config, and infrastructure as code. | Team-wide `caveman` + inline checklist. |
+| 🌍 | `geo` | Implements and reviews geolocation, maps, and spatial queries (e.g. PostGIS). | Team-wide `caveman` + inline checklist. |
+| ✍️ | `copy` | Centralizes UI strings, manages i18n/translations, keeps terminology consistent. | Team-wide `caveman` + inline checklist. |
+| 🔍 | `code-review` | Reviews changes for quality/readability pre-merge and runs the lint/typecheck/build gate. | Team-wide `caveman` + inline checklist. |
+| 🏷️ | `release` | Manages semantic versioning and changelog entries. | Team-wide `caveman` + inline checklist. |
+| 📋 | `pm` | Maintains project documentation, changelog, and status tracking. | Team-wide `caveman` + inline responsibilities. |
 
 **Note on trust:** live-fetched skills are pulled from third-party repos you don't control. Review
 `src/lib/remoteSkills.ts` if you want to audit exactly which URLs are fetched, or fork/pin them if you
