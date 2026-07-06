@@ -57,7 +57,7 @@ substance) to reduce output tokens across the whole team, not only a single
 specialist agent.
 
 Each agent ships as a single `.agent.md` file. Most are fully self-contained (no external skill
-dependency — the expertise/checklist is written inline in the agent file). Thirteen exceptions, all
+dependency — the expertise/checklist is written inline in the agent file). Fifteen exceptions, all
 fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing manual required:
 
 - all agents use `caveman` (team-wide compression skill);
