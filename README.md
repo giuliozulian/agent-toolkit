@@ -1,6 +1,6 @@
 # ai-agents-team
 
-A team of 16 specialized AI agents (coordinator, backend, frontend, design, designer, accessibility, performance, security, testing, database, devops, geo, copy, code-review, release, pm) for web development, distributed as a small CLI so every project can install and update them from one place instead of copy-pasting files by hand.
+A team of 17 specialized AI agents (coordinator, backend, frontend, design, designer, accessibility, performance, security, testing, database, devops, geo, seo, copy, code-review, release, pm) for web development, distributed as a small CLI so every project can install and update them from one place instead of copy-pasting files by hand.
 
 See [agent-toolkit-package-plan.md](agent-toolkit-package-plan.md) for the original design doc.
 
@@ -30,7 +30,7 @@ outputs are listed in `.gitignore` (`.github/agents/`, `.github/skills/`, `.gith
 
 - `src/` — CLI source (TypeScript, ESM, built with `tsup`).
 - `src/lib/remoteSkills.ts` — registry of skills fetched live from their upstream source at `init`/`sync` time (see below).
-- `templates/agents/*.agent.md` — 16 generic sub-agents (coordinator, backend, frontend, design, designer, accessibility, performance, security, testing, database, devops, geo, copy, code-review, release, pm).
+- `templates/agents/*.agent.md` — 17 generic sub-agents (coordinator, backend, frontend, design, designer, accessibility, performance, security, testing, database, devops, geo, seo, copy, code-review, release, pm).
 - `templates/instructions/` — reserved for future generic instructions (currently empty; project-specific instructions stay in each repo, see the plan doc §1 and §9).
 
 ## Self-sufficiency rule
@@ -57,7 +57,7 @@ substance) to reduce output tokens across the whole team, not only a single
 specialist agent.
 
 Each agent ships as a single `.agent.md` file. Most are fully self-contained (no external skill
-dependency — the expertise/checklist is written inline in the agent file). Five exceptions, all
+dependency — the expertise/checklist is written inline in the agent file). Seven exceptions, all
 fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing manual required:
 
 - all agents use `caveman` (team-wide compression skill);
@@ -65,6 +65,8 @@ fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing
 - `frontend` uses [`frontend-design`](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md) (Apache-2.0, [anthropics/skills](https://github.com/anthropics/skills)).
 - `designer` uses [`design-taste-frontend`](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md) from [tasteskill.dev](https://www.tasteskill.dev/) ([Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)) to define interface direction and collaborate with frontend on implementation.
 - `performance` uses [`web-performance-optimization`](https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills/web-performance-optimization/SKILL.md) from [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) for systematic web performance optimization workflows.
+- `geo` uses [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) from [SNLabat/SEO-GEO-AEO-Skill](https://github.com/SNLabat/SEO-GEO-AEO-Skill) for GEO-aware search optimization workflows.
+- `seo` uses the same [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) skill for full SEO/GEO/AEO audits and optimization.
 - `accessibility` uses six skills from [mgifford/accessibility-skills](https://github.com/mgifford/accessibility-skills) (AGPL-3.0) and [mikemai2awesome/agent-skills](https://github.com/mikemai2awesome/agent-skills) (see table below).
 
 | | Agent | Description | Skill it uses |
@@ -76,11 +78,12 @@ fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing
 | 🧩 | `designer` | Defines interface direction and works with frontend to ship implementation-ready UI specs and handoff. | Team-wide `caveman` + live-fetched: [`design-taste-frontend`](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md) → `.github/skills/design-taste-frontend/`. |
 | ♿ | `accessibility` | Audits UI against WCAG for keyboard nav, screen readers, contrast, and semantics. | Team-wide `caveman` + live-fetched: `accessibility-general`, `forms-a11y`, `keyboard-a11y`, `color-contrast-a11y`, `aria-live-regions-a11y` (from [mgifford/accessibility-skills](https://github.com/mgifford/accessibility-skills)) and `frontend-a11y` (from [mikemai2awesome/agent-skills](https://github.com/mikemai2awesome/agent-skills)) → `.github/skills/`. |
 | ⚡ | `performance` | Reviews rendering, bundle size, network requests, and data-access performance. | Team-wide `caveman` + live-fetched: [`web-performance-optimization`](https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills/web-performance-optimization/SKILL.md) → `.github/skills/web-performance-optimization/`. |
+| 🌍 | `geo` | Implements and reviews geolocation, maps, and spatial queries (e.g. PostGIS). | Team-wide `caveman` + live-fetched: [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) → `.github/skills/seo-geo-aeo/`. |
+| 🔎 | `seo` | Audits and improves SEO, GEO, and AEO outcomes for websites and web apps. | Team-wide `caveman` + live-fetched: [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) → `.github/skills/seo-geo-aeo/`. |
 | 🔒 | `security` | Reviews code/designs for OWASP Top 10-style vulnerabilities and risky config/dependencies. | Team-wide `caveman` + inline checklist. |
 | 🧪 | `testing` | Designs/writes automated tests, reviews coverage, diagnoses flaky failures. | Team-wide `caveman` + inline checklist. |
 | 🗄️ | `database` | Designs and reviews schema, migrations, indexes, and constraints. | Team-wide `caveman` + inline checklist. |
 | 🚀 | `devops` | Reviews/implements CI/CD pipelines, build/deploy config, and infrastructure as code. | Team-wide `caveman` + inline checklist. |
-| 🌍 | `geo` | Implements and reviews geolocation, maps, and spatial queries (e.g. PostGIS). | Team-wide `caveman` + inline checklist. |
 | ✍️ | `copy` | Centralizes UI strings, manages i18n/translations, keeps terminology consistent. | Team-wide `caveman` + inline checklist. |
 | 🔍 | `code-review` | Reviews changes for quality/readability pre-merge and runs the lint/typecheck/build gate. | Team-wide `caveman` + inline checklist. |
 | 🏷️ | `release` | Manages semantic versioning and changelog entries. | Team-wide `caveman` + inline checklist. |

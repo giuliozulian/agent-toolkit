@@ -8,6 +8,8 @@ const AGENT_SPECIFIC_SKILLS: Record<string, string[]> = {
   frontend: ["frontend-design"],
   designer: ["design-taste-frontend"],
   performance: ["web-performance-optimization"],
+  geo: ["seo-geo-aeo"],
+  seo: ["seo-geo-aeo"],
   accessibility: [
     "accessibility-general",
     "forms-a11y",
@@ -32,6 +34,7 @@ const ALL_AGENT_IDS = [
   "database",
   "devops",
   "geo",
+  "seo",
   "copy",
   "code-review",
   "release",

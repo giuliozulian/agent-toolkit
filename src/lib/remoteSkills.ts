@@ -105,6 +105,15 @@ export const REMOTE_SKILLS: RemoteSkillDefinition[] = [
     ],
   },
   {
+    id: "seo-geo-aeo",
+    files: [
+      {
+        url: "https://raw.githubusercontent.com/SNLabat/SEO-GEO-AEO-Skill/main/SKILL.md",
+        targetName: "SKILL.md",
+      },
+    ],
+  },
+  {
     id: "grilling",
     files: [
       {

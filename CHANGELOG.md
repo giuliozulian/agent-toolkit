@@ -6,6 +6,8 @@ All notable changes to this package are documented here. Format loosely follows 
 
 ### Added
 - `performance` now auto-installs the live-fetched `web-performance-optimization` skill from `sickn33/antigravity-awesome-skills`.
+- New `seo` agent for SEO/GEO/AEO audits and optimization workflows.
+- `geo` and `seo` now auto-install the live-fetched `seo-geo-aeo` skill from `SNLabat/SEO-GEO-AEO-Skill`.
 
 ## [0.1.2] - 2026-07-06
 
