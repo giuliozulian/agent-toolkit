@@ -7,6 +7,8 @@ See [agent-toolkit-package-plan.md](agent-toolkit-package-plan.md) for the origi
 ## Usage
 
 ```bash
+# clear cache 
+npm cache clean --force
 # in a consumer project
 npx ai-agents-team init   # first install (interactive, or --all)
 npx ai-agents-team sync   # update installed files to latest templates
