@@ -4,6 +4,8 @@ All notable changes to this package are documented here. Format loosely follows 
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-07-06
+
 ### Added
 - New `designer` agent focused on interface direction and frontend handoff collaboration.
 - Live-fetched `design-taste-frontend` skill (from `Leonxlnx/taste-skill`) auto-installed when `designer` is selected.
