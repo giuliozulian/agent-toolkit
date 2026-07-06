@@ -6,6 +6,7 @@ import {
   itemLabel,
   type TemplateItem,
 } from "../lib/copyTemplates.js";
+import { AGENT_SKILL_DEPENDENCIES } from "../lib/agentSkillDependencies.js";
 import { loadManifest, saveManifest, emptyManifest } from "../lib/manifest.js";
 import { hashContent } from "../lib/diff.js";
 import { getToolkitVersion } from "../lib/version.js";
@@ -28,11 +29,15 @@ export async function init(options: InitOptions = {}): Promise<void> {
   let selected: TemplateItem[] = items;
 
   if (!options.all) {
+    // Skills are never offered as a standalone choice: they're installed
+    // automatically as a dependency of the agent(s) that need them.
+    const selectableItems = items.filter((item) => item.category !== "skills");
+
     const { ids } = await prompts({
       type: "multiselect",
       name: "ids",
-      message: "Select agents/skills/instructions to install",
-      choices: items.map((item) => ({
+      message: "Select agents/instructions to install",
+      choices: selectableItems.map((item) => ({
         title: itemLabel(item),
         value: itemLabel(item),
         selected: true,
@@ -44,8 +49,20 @@ export async function init(options: InitOptions = {}): Promise<void> {
       console.log(pc.yellow("Nothing selected. Aborted."));
       return;
     }
-    selected = items.filter((item) => ids.includes(itemLabel(item)));
+    const chosen = selectableItems.filter((item) => ids.includes(itemLabel(item)));
+
+    const requiredSkillIds = new Set(
+      chosen
+        .filter((item) => item.category === "agents")
+        .flatMap((item) => AGENT_SKILL_DEPENDENCIES[item.id] ?? []),
+    );
+    const dependentSkills = items.filter(
+      (item) => item.category === "skills" && requiredSkillIds.has(item.id),
+    );
+
+    selected = [...chosen, ...dependentSkills];
   }
+
 
   const existingManifest = (await loadManifest(projectRoot)) ?? emptyManifest(version);
   const manifest = { ...existingManifest, toolkitVersion: version };
