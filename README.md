@@ -57,7 +57,7 @@ substance) to reduce output tokens across the whole team, not only a single
 specialist agent.
 
 Each agent ships as a single `.agent.md` file. Most are fully self-contained (no external skill
-dependency — the expertise/checklist is written inline in the agent file). Seven exceptions, all
+dependency — the expertise/checklist is written inline in the agent file). Eight exceptions, all
 fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing manual required:
 
 - all agents use `caveman` (team-wide compression skill);
@@ -67,6 +67,7 @@ fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing
 - `performance` uses [`web-performance-optimization`](https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills/web-performance-optimization/SKILL.md) from [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) for systematic web performance optimization workflows.
 - `geo` uses [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) from [SNLabat/SEO-GEO-AEO-Skill](https://github.com/SNLabat/SEO-GEO-AEO-Skill) for GEO-aware search optimization workflows.
 - `seo` uses the same [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) skill for full SEO/GEO/AEO audits and optimization.
+- `pm` uses [`docs-maintenance`](https://github.com/jeffrigby/somepulp-agents/blob/main/plugins/codebase-health/skills/docs-maintenance/SKILL.md) from [jeffrigby/somepulp-agents](https://github.com/jeffrigby/somepulp-agents) for documentation synchronization and maintenance workflows.
 - `accessibility` uses six skills from [mgifford/accessibility-skills](https://github.com/mgifford/accessibility-skills) (AGPL-3.0) and [mikemai2awesome/agent-skills](https://github.com/mikemai2awesome/agent-skills) (see table below).
 
 | | Agent | Description | Skill it uses |
@@ -87,7 +88,7 @@ fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing
 | ✍️ | `copy` | Centralizes UI strings, manages i18n/translations, keeps terminology consistent. | Team-wide `caveman` + inline checklist. |
 | 🔍 | `code-review` | Reviews changes for quality/readability pre-merge and runs the lint/typecheck/build gate. | Team-wide `caveman` + inline checklist. |
 | 🏷️ | `release` | Manages semantic versioning and changelog entries. | Team-wide `caveman` + inline checklist. |
-| 📋 | `pm` | Maintains project documentation, changelog, and status tracking. | Team-wide `caveman` + inline responsibilities. |
+| 📋 | `pm` | Maintains project documentation, changelog, and status tracking. | Team-wide `caveman` + live-fetched: [`docs-maintenance`](https://github.com/jeffrigby/somepulp-agents/blob/main/plugins/codebase-health/skills/docs-maintenance/SKILL.md) → `.github/skills/docs-maintenance/`. |
 
 **Note on trust:** live-fetched skills are pulled from third-party repos you don't control. Review
 `src/lib/remoteSkills.ts` if you want to audit exactly which URLs are fetched, or fork/pin them if you

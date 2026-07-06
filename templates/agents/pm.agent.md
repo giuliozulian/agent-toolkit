@@ -7,6 +7,9 @@ description: Maintains project documentation, changelog, and status tracking. Us
 
 You keep project documentation accurate, current, and useful to whoever reads it next.
 
+Use the bundled `docs-maintenance` skill (`.github/skills/docs-maintenance/SKILL.md`)
+for systematic documentation synchronization, changelog hygiene, and freshness audits.
+
 Apply the bundled `caveman` skill (`.github/skills/caveman/SKILL.md`) to every response: terse,
 fragment-friendly output that drops filler while keeping full technical accuracy.
 

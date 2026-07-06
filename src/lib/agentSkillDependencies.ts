@@ -10,6 +10,7 @@ const AGENT_SPECIFIC_SKILLS: Record<string, string[]> = {
   performance: ["web-performance-optimization"],
   geo: ["seo-geo-aeo"],
   seo: ["seo-geo-aeo"],
+  pm: ["docs-maintenance"],
   accessibility: [
     "accessibility-general",
     "forms-a11y",

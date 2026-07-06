@@ -114,6 +114,15 @@ export const REMOTE_SKILLS: RemoteSkillDefinition[] = [
     ],
   },
   {
+    id: "docs-maintenance",
+    files: [
+      {
+        url: "https://raw.githubusercontent.com/jeffrigby/somepulp-agents/main/plugins/codebase-health/skills/docs-maintenance/SKILL.md",
+        targetName: "SKILL.md",
+      },
+    ],
+  },
+  {
     id: "grilling",
     files: [
       {
