@@ -1,8 +1,16 @@
 {
   "name": "ai-agents-team",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "type": "module",
   "description": "A team of specialized AI agents (coordinator, security, frontend, accessibility, performance, QA) for web development, installable and updatable in any project via CLI.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giuliozulian/gz-agent-toolkit.git"
+  },
+  "homepage": "https://github.com/giuliozulian/gz-agent-toolkit#readme",
+  "bugs": {
+    "url": "https://github.com/giuliozulian/gz-agent-toolkit/issues"
+  },
   "bin": {
     "ai-agents-team": "./dist/cli.js"
   },
