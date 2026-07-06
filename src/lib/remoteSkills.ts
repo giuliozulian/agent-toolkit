@@ -38,6 +38,24 @@ export const REMOTE_SKILLS: RemoteSkillDefinition[] = [
     ],
   },
   {
+    id: "copywriting",
+    files: [
+      {
+        url: "https://raw.githubusercontent.com/coreyhaines31/marketingskills/main/skills/copywriting/SKILL.md",
+        targetName: "SKILL.md",
+      },
+    ],
+  },
+  {
+    id: "security",
+    files: [
+      {
+        url: "https://raw.githubusercontent.com/openhands/skills/main/skills/security/SKILL.md",
+        targetName: "SKILL.md",
+      },
+    ],
+  },
+  {
     id: "design-taste-frontend",
     files: [
       {

@@ -57,7 +57,7 @@ substance) to reduce output tokens across the whole team, not only a single
 specialist agent.
 
 Each agent ships as a single `.agent.md` file. Most are fully self-contained (no external skill
-dependency — the expertise/checklist is written inline in the agent file). Ten exceptions, all
+dependency — the expertise/checklist is written inline in the agent file). Twelve exceptions, all
 fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing manual required:
 
 - all agents use `caveman` (team-wide compression skill);
@@ -66,6 +66,8 @@ fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing
 - `designer` uses [`design-taste-frontend`](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md) from [tasteskill.dev](https://www.tasteskill.dev/) ([Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)) to define interface direction and collaborate with frontend on implementation.
 - `devops` uses [`ci-cd`](https://github.com/ahmedasmar/devops-claude-skills/blob/main/ci-cd/skills/SKILL.md) from [ahmedasmar/devops-claude-skills](https://github.com/ahmedasmar/devops-claude-skills) for CI/CD and DevSecOps pipeline workflows.
 - `database` uses [`postgres`](https://github.com/planetscale/database-skills/blob/main/skills/postgres/SKILL.md) from [planetscale/database-skills](https://github.com/planetscale/database-skills) for database design, query optimization, and performance triage workflows.
+- `copy` uses [`copywriting`](https://github.com/coreyhaines31/marketingskills/blob/main/skills/copywriting/SKILL.md) from [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) for conversion-oriented copywriting and messaging workflows.
+- `security` uses [`security`](https://github.com/openhands/skills/blob/main/skills/security/SKILL.md) from [openhands/skills](https://github.com/openhands/skills) for secure-coding and vulnerability-prevention workflows.
 - `performance` uses [`web-performance-optimization`](https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills/web-performance-optimization/SKILL.md) from [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) for systematic web performance optimization workflows.
 - `geo` uses [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) from [SNLabat/SEO-GEO-AEO-Skill](https://github.com/SNLabat/SEO-GEO-AEO-Skill) for GEO-aware search optimization workflows.
 - `seo` uses the same [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) skill for full SEO/GEO/AEO audits and optimization.
@@ -85,11 +87,11 @@ fetched live at `init`/`sync` time (see Self-sufficiency rule above) — nothing
 | ⚡ | `performance` | Reviews rendering, bundle size, network requests, and data-access performance. | Team-wide `caveman` + live-fetched: [`web-performance-optimization`](https://github.com/sickn33/antigravity-awesome-skills/blob/main/skills/web-performance-optimization/SKILL.md) → `.github/skills/web-performance-optimization/`. |
 | 🌍 | `geo` | Implements and reviews geolocation, maps, and spatial queries (e.g. PostGIS). | Team-wide `caveman` + live-fetched: [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) → `.github/skills/seo-geo-aeo/`. |
 | 🔎 | `seo` | Audits and improves SEO, GEO, and AEO outcomes for websites and web apps. | Team-wide `caveman` + live-fetched: [`seo-geo-aeo`](https://github.com/SNLabat/SEO-GEO-AEO-Skill/blob/main/SKILL.md) → `.github/skills/seo-geo-aeo/`. |
-| 🔒 | `security` | Reviews code/designs for OWASP Top 10-style vulnerabilities and risky config/dependencies. | Team-wide `caveman` + inline checklist. |
+| 🔒 | `security` | Reviews code/designs for OWASP Top 10-style vulnerabilities and risky config/dependencies. | Team-wide `caveman` + live-fetched: [`security`](https://github.com/openhands/skills/blob/main/skills/security/SKILL.md) → `.github/skills/security/`. |
 | 🧪 | `testing` | Designs/writes automated tests, reviews coverage, diagnoses flaky failures. | Team-wide `caveman` + inline checklist. |
 | 🗄️ | `database` | Designs and reviews schema, migrations, indexes, and constraints. | Team-wide `caveman` + live-fetched: [`postgres`](https://github.com/planetscale/database-skills/blob/main/skills/postgres/SKILL.md) → `.github/skills/postgres/`. |
 | 🚀 | `devops` | Reviews/implements CI/CD pipelines, build/deploy config, and infrastructure as code. | Team-wide `caveman` + live-fetched: [`ci-cd`](https://github.com/ahmedasmar/devops-claude-skills/blob/main/ci-cd/skills/SKILL.md) → `.github/skills/ci-cd/`. |
-| ✍️ | `copy` | Centralizes UI strings, manages i18n/translations, keeps terminology consistent. | Team-wide `caveman` + inline checklist. |
+| ✍️ | `copy` | Centralizes UI strings, manages i18n/translations, keeps terminology consistent. | Team-wide `caveman` + live-fetched: [`copywriting`](https://github.com/coreyhaines31/marketingskills/blob/main/skills/copywriting/SKILL.md) → `.github/skills/copywriting/`. |
 | 🔍 | `code-review` | Reviews changes for quality/readability pre-merge and runs the lint/typecheck/build gate. | Team-wide `caveman` + live-fetched: [`code-review`](https://github.com/petyosi/rc/blob/master/claude/skills/code-review/SKILL.md) → `.github/skills/code-review/`. |
 | 🏷️ | `release` | Manages semantic versioning and changelog entries. | Team-wide `caveman` + live-fetched: [`release-skills`](https://github.com/JimLiu/baoyu-skills/blob/main/.claude/skills/release-skills/SKILL.md) → `.github/skills/release-skills/`. |
 | 📋 | `pm` | Maintains project documentation, changelog, and status tracking. | Team-wide `caveman` + live-fetched: [`docs-maintenance`](https://github.com/jeffrigby/somepulp-agents/blob/main/plugins/codebase-health/skills/docs-maintenance/SKILL.md) → `.github/skills/docs-maintenance/`. |

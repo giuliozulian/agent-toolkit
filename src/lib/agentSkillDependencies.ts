@@ -7,6 +7,8 @@ const AGENT_SPECIFIC_SKILLS: Record<string, string[]> = {
   coordinator: ["grilling"],
   devops: ["ci-cd"],
   database: ["postgres"],
+  copy: ["copywriting"],
+  security: ["security"],
   frontend: ["frontend-design"],
   designer: ["design-taste-frontend"],
   performance: ["web-performance-optimization"],

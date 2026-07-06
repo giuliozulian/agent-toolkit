@@ -1,6 +1,6 @@
 {
   "name": "ai-agents-team",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "type": "module",
   "description": "A team of specialized AI agents (coordinator, security, frontend, accessibility, performance, QA) for web development, installable and updatable in any project via CLI.",
   "repository": {
